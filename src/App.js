@@ -1,27 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from "react-router-dom";
 import './App.css';
-import finnhubService from "./services/finnhubService";
+import StockSearchContainer from "./containers/StockSearchContainer";
+import HomePageComponent from "./components/HomePageComponent";
+
 
 function App() {
-  console.log(finnhubService.findAllUSStocks().then(json => console.log(json)));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path="/search/:searchTerm?"
+             render={(props) =>
+               <StockSearchContainer {...props}
+                                     searchTerm={props.match.params.searchTerm}
+               />
+             }
+      />
+      <Route path="/">
+        <HomePageComponent/>
+      </Route>
+    </Switch>
   );
 }
 
