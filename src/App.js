@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import './App.css';
 import StockSearchContainer from "./containers/StockSearchContainer";
 import HomePageComponent from "./components/HomePageComponent";
+import StockDetailsContainer from "./containers/StockDetailsContainer";
 
 
 function App() {
@@ -15,8 +16,15 @@ function App() {
                />
              }
       />
+      <Route path="/stock/:symbol"
+             render={(props) =>
+               <StockDetailsContainer {...props}
+                                      symbol={props.match.params.symbol}
+               />
+             }
+      />
       <Route path="/">
-        <HomePageComponent/>
+        <HomePageComponent />
       </Route>
     </Switch>
   );

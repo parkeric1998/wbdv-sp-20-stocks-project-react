@@ -5,7 +5,7 @@ const HomePageComponent = () =>
   <div>
     <h1>HOME</h1>
     <Link to="/search">Search</Link>
-    <Link to="/search/aa">Specific Serach</Link>
+    <Link to="/stock/AAPL">Details</Link>
   </div>
 
 export default HomePageComponent;
