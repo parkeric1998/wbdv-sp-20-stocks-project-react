@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 
 const StockSearchBarComponent = ({ searchTerm}) => {
-  console.log(searchTerm);
   let history = useHistory();
   return<input type="text" onChange={e => history.push(`/search/${e.target.value}`)} value={searchTerm} />;
 };
