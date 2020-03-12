@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import finnhubService from "./services/finnhubService";
 
 function App() {
+  console.log(finnhubService.findAllUSStocks().then(json => console.log(json)));
   return (
     <div className="App">
       <header className="App-header">
