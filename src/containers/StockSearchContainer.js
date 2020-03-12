@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import StockSearchComponent from "../components/StockSearchComponent";
+import StockSearchComponent from "../components/StockSearch/StockSearchComponent";
 import finnhubService from "../services/finnhubService";
 import { findStocks } from "../actions/finnhubActions";
 
