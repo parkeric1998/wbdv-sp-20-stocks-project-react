@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import debounce from "lodash/debounce";
 
-const setUrl = debounce((history, newSearch) => history.push(`/search/${newSearch}`), 1000);
+const setUrl = debounce((history, newSearch) => history.push(`/search/${newSearch}`), 200);
 
 const StockSearchBarComponent = ({ searchTerm}) => {
   let history = useHistory();

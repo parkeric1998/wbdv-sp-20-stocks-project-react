@@ -14,10 +14,13 @@ const finnhubReducer = (state = initialState, action) => {
       return {
         ...state,
         allStocks: uniqueStock,
-        filteredStocks: uniqueStock,
+        filteredStocks: uniqueStock.slice(0, 200),
       };
     case FILTER_STOCKS:
-      const filteredStocks = state.allStocks.filter(stock => stock.displaySymbol.startsWith(action.searchTerm));
+      const filteredStocks =
+        state.allStocks
+        .filter(stock => stock.displaySymbol.startsWith(action.searchTerm))
+        .slice(0, 200);
       return {
         ...state,
         filteredStocks
