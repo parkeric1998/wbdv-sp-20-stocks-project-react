@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import debounce from "lodash/debounce";
 
+const setUrl = debounce((history, newSearch) => history.push(`/search/${newSearch}`), 1000);
 
 const StockSearchBarComponent = ({ searchTerm}) => {
   let history = useHistory();
-  return<input type="text" onChange={e => history.push(`/search/${e.target.value}`)} value={searchTerm} />;
+  const [curSearch, setCurSearch] = useState(
+    searchTerm
+  );
+
+  let handleChange = e => {
+    const newSearch = e.target.value;
+    setCurSearch(newSearch);
+    setUrl(history, newSearch);
+  };
+
+  return<input type="text" onChange={handleChange} value={curSearch} />;
 };
 
 
