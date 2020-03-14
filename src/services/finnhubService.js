@@ -1,5 +1,5 @@
 import { finnhubUrl } from '../utils'
-import { allStocks } from "../allStocks";
+// import { allStocks } from "../allStocks";
 
 // REAL API CALL
 const findAllUSStocks = async () => {
