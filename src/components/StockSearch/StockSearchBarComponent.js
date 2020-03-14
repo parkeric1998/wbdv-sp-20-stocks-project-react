@@ -17,3 +17,4 @@ const StockSearchBarComponent = ({searchTerm}) => {
 
     </div>
 }
+export default StockSearchBarComponent
