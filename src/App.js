@@ -16,7 +16,7 @@ function App() {
                />
              }
       />
-      <Route path="/stock/:symbol"
+      <Route path="/details/:symbol"
              render={(props) =>
                <StockDetailsContainer {...props}
                                       symbol={props.match.params.symbol}
