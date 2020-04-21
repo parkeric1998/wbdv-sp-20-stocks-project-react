@@ -26,7 +26,7 @@ const HomePageComponent = () =>
             </a>
         </div>
         <div>
-            <a href="/AAPL">
+            <a href="/details/AAPL">
                 <i className="fa fa-3x fa-file">
                     Details
                 </i>
