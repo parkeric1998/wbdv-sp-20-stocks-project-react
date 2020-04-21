@@ -19,7 +19,7 @@ const StockSearchBarComponent = ({ searchTerm }) => {
 
   return (
     <div className="col-2" class="wrap">
-      <div class="search">
+      <div className="search">
         <input type="text" placeholder="Stock Ticker" class="searchTerm" onChange={handleChange} value={curSearch} />
       </div>
     </div>
