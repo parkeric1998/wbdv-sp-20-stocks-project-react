@@ -4,8 +4,8 @@ import "./StockDetailsComponent.css"
 
 const StockDetailsComponent = ({ symbol }) => {
   return (
-    <div class = "details-page">
-      <h1 class="display-4">{`${symbol}`}</h1>
+    <div className= "details-page">
+      <h1 className="display-4">{`${symbol}`}</h1>
       <StockQuoteComponent />
     </div>
   )
