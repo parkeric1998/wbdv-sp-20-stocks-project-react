@@ -8,9 +8,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import finnhubReducer from "./reducers/finnhubReducers";
+import userReducer from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
   finnhub: finnhubReducer,
+  user: userReducer,
 });
 
 const store = createStore(rootReducer);

@@ -1,33 +1,73 @@
-import { apiUrl } from '../constants'
+import { API_URL } from '../constants'
 
-
-const registerUser = async (user) => {
-  const response = await fetch(`${apiUrl}/register`, {
+const register = async (user) => {
+  const response = await fetch(`${API_URL}/register`, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
       'content-type': 'application/json'
-    }
+    },
+    credentials: 'include',
+  });
+  return await response.json();
+};
+
+const login = async (user) => {
+  const response = await fetch(`${API_URL}/login`, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'content-type': 'application/json'
+    },
+    credentials: 'include',
+  });
+  return await response.json();
+};
+
+const logout = async () => {
+  const response = await fetch(`${API_URL}/logout`, {
+    method: 'POST',
+    credentials: 'include',
   });
   return await response.json();
 };
 
 
-/*
-returns:
-{
-name: "John Smith",
-stocks: ["AAPL"],
-}
- */
 
-const findProfile = async () => {
-   const response = await fetch(`${apiUrl}/profile`);
+const getSavedStocks = async (userId) => {
+   const response = await fetch(`${API_URL}/users/${userId}/stocks`, {
+     credentials: 'include'
+   });
    return await response.json();
  };
 
+const saveStock = async (userId, stockSymbol) => {
+  const response = await fetch(`${API_URL}/users/${userId}/stocks/`, {
+    method: 'POST',
+    body: JSON.stringify({
+      stockSymbol
+    }),
+    credentials: 'include',
+  });
+  return await response.json();
+};
+
+const deleteStock = async (userId, stockSymbol) => {
+  const response = await fetch(`${API_URL}/users/${userId}/stocks/${stockSymbol}`, {
+    method: 'DELETE',
+    credentials: 'include',
+  });
+  return await response.json();
+};
+
+
+
 
 export default {
-  findProfile,
-  registerUser
+  register,
+  login,
+  logout,
+  getSavedStocks,
+  saveStock,
+  deleteStock
 }
