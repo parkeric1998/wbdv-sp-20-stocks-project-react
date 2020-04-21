@@ -11,6 +11,14 @@ const HomePageComponent = () =>
             width="700"
         />
         <div>
+            <a href="/login">
+                <i className="fa fa-3x fa-file">
+                    Login
+                </i>
+            </a>
+        </div>
+
+        <div>
             <a href="/search">
                 <i className="fa fa-3x fa-search">
                     Search
@@ -24,6 +32,7 @@ const HomePageComponent = () =>
                 </i>
             </a>
         </div>
+
 
     </div>
 
