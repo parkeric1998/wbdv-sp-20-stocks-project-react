@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 class LoginComponent extends Component {
   state = {
-    username: "",
+    name: "",
     password: "",
   };
 
 
   updateUsername = (e) => {
     e.preventDefault();
-    this.setState({ username: e.target.value })
+    this.setState({ name: e.target.value })
   };
   updatePassword = (e) => {
     e.preventDefault();
@@ -20,14 +20,14 @@ class LoginComponent extends Component {
   renderUsernameField = () => {
     return (
       <div className="form-group row">
-        <label htmlFor="username" className="col-sm-2 col-form-label">
+        <label htmlFor="name" className="col-sm-2 col-form-label">
           Username
         </label>
         <div className="col-sm-10">
           <input className="form-control"
-                 value={this.state.username}
+                 value={this.state.name}
                  onChange={this.updateUsername}
-                 id="username"
+                 id="name"
                  placeholder="Alice" />
         </div>
       </div>
@@ -55,7 +55,7 @@ class LoginComponent extends Component {
   loginUser = (e) => {
     e.preventDefault();
     console.log({
-      username: this.state.username,
+      name: this.state.name,
       password: this.state.password
     })
   };

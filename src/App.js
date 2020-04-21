@@ -27,19 +27,15 @@ function App() {
                />
              }
       />
-      <Route path="/login">
-        <LoginComponent/>
+      <Route path="/login" component={LoginComponent}>
       </Route>
 
-      <Route path="/register">
-        <RegisterComponent/>
+      <Route path="/register" component={RegisterComponent}>
       </Route>
 
-      <Route path="/profile">
-        <ProfileComponent/>
+      <Route path="/profile" component={ProfileComponent}>
       </Route>
-      <Route path="/">
-        <HomePageComponent />
+      <Route path="/" component={HomePageComponent}>
       </Route>
     </Switch>
   );

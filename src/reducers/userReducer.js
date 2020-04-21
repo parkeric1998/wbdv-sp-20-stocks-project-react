@@ -2,7 +2,7 @@ import { LOGIN_USER, LOGOUT_USER, SAVE_STOCK, DELETE_STOCK} from "../actions/use
 
 const initialState = {
   userId: "",
-  username: "",
+  name: "",
   stocks: [],
 };
 
@@ -14,7 +14,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         userId: user.id,
-        username: user.username,
+        name: user.name,
         stocks: user.stocks,
       };
     case LOGOUT_USER:

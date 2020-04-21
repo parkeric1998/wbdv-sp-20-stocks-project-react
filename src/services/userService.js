@@ -33,27 +33,26 @@ const logout = async () => {
 };
 
 
-
+//unneeded?
 const getSavedStocks = async (userId) => {
-   const response = await fetch(`${API_URL}/users/${userId}/stocks`, {
+   const response = await fetch(`${API_URL}/stocks`, {
      credentials: 'include'
    });
    return await response.json();
  };
 
-const saveStock = async (userId, stockSymbol) => {
-  const response = await fetch(`${API_URL}/users/${userId}/stocks/`, {
+// stock is { symbol, name }
+const saveStock = async (stock) => {
+  const response = await fetch(`${API_URL}/stocks/`, {
     method: 'POST',
-    body: JSON.stringify({
-      stockSymbol
-    }),
+    body: JSON.stringify(stock),
     credentials: 'include',
   });
   return await response.json();
 };
 
-const deleteStock = async (userId, stockSymbol) => {
-  const response = await fetch(`${API_URL}/users/${userId}/stocks/${stockSymbol}`, {
+const deleteStock = async (stockSymbol) => {
+  const response = await fetch(`${API_URL}/stocks/${stockSymbol}`, {
     method: 'DELETE',
     credentials: 'include',
   });
@@ -61,13 +60,10 @@ const deleteStock = async (userId, stockSymbol) => {
 };
 
 
-
-
 export default {
   register,
   login,
   logout,
-  getSavedStocks,
   saveStock,
   deleteStock
 }

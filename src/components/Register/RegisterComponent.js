@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { ROLES } from "../../constants";
+import userService from "../../services/userService";
+import { loginUser } from "../../actions/userActions";
 
 
-//TODO frontend verify username/password length
+//TODO frontend verify name/password length
 class RegisterComponent extends Component {
   state = {
-    username: "",
+    name: "",
     password: "",
     role: "Beginner",
     verify: "",
@@ -14,7 +17,7 @@ class RegisterComponent extends Component {
 
   updateUsername = (e) => {
     e.preventDefault();
-    this.setState({ username: e.target.value })
+    this.setState({ name: e.target.value })
   };
   updatePassword = (e) => {
     e.preventDefault();
@@ -49,14 +52,14 @@ class RegisterComponent extends Component {
   renderUsernameField = () => {
     return (
       <div className="form-group row">
-        <label htmlFor="username" className="col-sm-2 col-form-label">
+        <label htmlFor="name" className="col-sm-2 col-form-label">
           Username
         </label>
         <div className="col-sm-10">
           <input className="form-control"
-                 value={this.state.username}
+                 value={this.state.name}
                  onChange={this.updateUsername}
-                 id="username"
+                 id="name"
                  placeholder="Alice" />
         </div>
       </div>
@@ -98,13 +101,15 @@ class RegisterComponent extends Component {
     );
   };
 
-  registerUser = (e) => {
+  registerUser = async (e) => {
+    const { registerUser } = this.props;
     e.preventDefault();
-    console.log({
-      role: this.state.role,
-      username: this.state.username,
+    const user = {
+      name: this.state.name,
       password: this.state.password
-    })
+    };
+    registerUser(user);
+    this.props.history.push('/home');
   };
 
   render = () => {
@@ -133,11 +138,22 @@ class RegisterComponent extends Component {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     )
   }
 }
 
-export default RegisterComponent
+
+const stateToPropertyMapper = (state) => ({ });
+
+
+const dispatcherToPropsMapper = (dispatch) => ({
+  registerUser: async (user) => {
+    const savedUser = await userService.register(user);
+    dispatch(loginUser(savedUser));
+  }
+});
+
+
+export default connect(stateToPropertyMapper, dispatcherToPropsMapper)(RegisterComponent);
