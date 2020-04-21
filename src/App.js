@@ -27,47 +27,22 @@ function App() {
                />
              }
       />
+      <Route path="/login">
+        <LoginComponent/>
+      </Route>
+
+      <Route path="/register">
+        <RegisterComponent/>
+      </Route>
+
+      <Route path="/profile">
+        <ProfileComponent/>
+      </Route>
       <Route path="/">
         <HomePageComponent />
       </Route>
     </Switch>
   );
-
-    return (
-        <Switch>
-            <Route path="/search/:searchTerm?"
-                   render={(props) =>
-                       <StockSearchContainer {...props}
-                                             searchTerm={props.match.params.searchTerm}
-                       />
-                   }
-            />
-            <Route path="/stock/:symbol"
-                   render={(props) =>
-                       <StockDetailsContainer {...props}
-                                              symbol={props.match.params.symbol}
-                       />
-                   }
-            />
-            <Route path="/login">
-                <LoginComponent/>
-            </Route>
-
-            <Route path="/register">
-                <RegisterComponent/>
-            </Route>
-
-            <Route path="/profile">
-                <ProfileComponent/>
-            </Route>
-
-            <Route path="/">
-                <HomePageComponent/>
-            </Route>
-
-
-        </Switch>
-    );
 
 }
 
