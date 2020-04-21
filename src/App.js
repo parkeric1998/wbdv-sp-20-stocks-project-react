@@ -2,11 +2,11 @@ import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import './App.css';
 import StockSearchContainer from "./containers/StockSearchContainer";
-import HomePageComponent from "./components/HomePageComponent";
+import HomePageComponent from "./components/HomePage/HomePageComponent";
 import StockDetailsContainer from "./containers/StockDetailsContainer";
-import LoginComponent from "./components/login/LoginComponent";
-import RegisterComponent from "./components/register/RegisterComponent";
-import ProfileComponent from "./components/profile/ProfileComponent";
+import LoginComponent from "./components/Login/LoginComponent";
+import RegisterComponent from "./components/Register/RegisterComponent";
+import ProfileComponent from "./components/Profile/ProfileComponent";
 
 
 function App() {
