@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import "./HomePageComponent.css"
 
 const HomePageComponent = () =>
-    <div class="home-page">
-        <h1 class="display-4">Stock Home Page</h1>
+    <div className="home-page">
+        <h1 className="display-4">Stock Home Page</h1>
         <img
             src="https://www.forecast-chart.com/images/historical/nasdaq-100-may.gif"
             height="400"
