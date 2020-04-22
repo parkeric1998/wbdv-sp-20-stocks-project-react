@@ -31,6 +31,11 @@ const HomePageComponent = () =>
                 </i>
             </Link>
         </div>
+      <div>
+        <Link to="/profile">
+            Profile
+        </Link>
+      </div>
         <div>
             <Link to="/details/LinkAPL">
                 <i className="fa fa-3x fa-file">
