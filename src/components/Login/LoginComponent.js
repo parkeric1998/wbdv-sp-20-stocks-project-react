@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import userService from "../../services/userService";
+import {loginUser} from "../../actions/userActions";
+import {connect} from "react-redux";
 
 class LoginComponent extends Component {
   state = {
@@ -54,10 +57,13 @@ class LoginComponent extends Component {
 
   loginUser = (e) => {
     e.preventDefault();
-    console.log({
+    const user = {
       name: this.state.name,
       password: this.state.password
-    })
+    };
+    const {loginUser} = this.props;
+    loginUser(user);
+    this.props.history.push('/profile');
   };
 
   render = () => {
@@ -91,4 +97,16 @@ class LoginComponent extends Component {
   }
 }
 
-export default LoginComponent;
+
+const stateToPropertyMapper = (state) => ({ });
+
+
+const dispatcherToPropsMapper = (dispatch) => ({
+  loginUser: async (user) => {
+    const savedUser = await userService.login(user);
+    dispatch(loginUser(savedUser));
+  }
+});
+
+
+export default connect(stateToPropertyMapper, dispatcherToPropsMapper)(LoginComponent);
