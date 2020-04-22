@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case LOGIN_USER:
       let user = action.user;
@@ -27,7 +26,7 @@ const userReducer = (state = initialState, action) => {
     case DELETE_STOCK:
       return {
         ...state,
-        stocks: state.stocks.filter(s => action.stock.symbol !== s.symbol)
+        stocks: state.stocks.filter(s => action.symbol !== s.symbol)
       };
     default:
       return state

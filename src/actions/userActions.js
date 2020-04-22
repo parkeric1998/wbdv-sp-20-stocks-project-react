@@ -16,7 +16,7 @@ export const saveStock = (stock) => ({
 });
 
 export const DELETE_STOCK = "DELETE_STOCK";
-export const deleteStock = (stock) => ({
+export const deleteStock = (symbol) => ({
   type: DELETE_STOCK,
-  stock
+  symbol
 });

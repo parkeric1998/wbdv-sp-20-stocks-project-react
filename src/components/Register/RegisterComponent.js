@@ -106,7 +106,8 @@ class RegisterComponent extends Component {
     e.preventDefault();
     const user = {
       name: this.state.name,
-      password: this.state.password
+      password: this.state.password,
+      stocks: []
     };
     registerUser(user);
     this.props.history.push('/home');

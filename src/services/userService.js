@@ -46,6 +46,9 @@ const saveStock = async (stock) => {
   const response = await fetch(`${API_URL}/stocks/`, {
     method: 'POST',
     body: JSON.stringify(stock),
+    headers: {
+      'content-type': 'application/json'
+    },
     credentials: 'include',
   });
   return await response.json();
