@@ -1,39 +1,29 @@
 import React, { Component } from "react";
 import userService from "../../services/userService";
-import { deleteStock, loginUser } from "../../actions/userActions";
+import { deleteStock } from "../../actions/userActions";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import MyStocksComponent from "../MyStocksComponent";
 
 class ProfileComponent extends Component {
-  handleDelete = (symbol, e) => {
-    e.preventDefault();
-    const { deleteStock } = this.props;
-    deleteStock(symbol);
-  };
-
   render() {
-    console.log(this.props.stocks);
-    return (
-      <div className="container">
-        <div>
-          {this.props.name}
+    if (this.props.name !== "") {
+      return (
+        <div className="container">
+          <div>
+            {this.props.name}
+          </div>
+          <MyStocksComponent />
         </div>
-        <ul>
-          {this.props.stocks.map(stock =>
-            <li key={stock.symbol}>
-              <Link to={`/details/${stock.symbol}`}>{stock.symbol}</Link>
-              <button onClick={(e) => this.handleDelete(stock.symbol, e)}>Delete</button>
-            </li>
-          )}
-        </ul>
-      </div>
-    );
+      );
+    }
+    return (
+      <div>not logged in</div>
+    )
   }
 
 }
 
 const stateToPropertyMapper = (state) => ({
-  stocks: state.user.stocks,
   name: state.user.name
 });
 
