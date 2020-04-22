@@ -14,7 +14,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         userId: user.id,
         name: user.name,
-        stocks: user.stocks,
+        stocks: user.stocks || [],
       };
     case LOGOUT_USER:
       return initialState;

@@ -6,7 +6,7 @@ export const loginUser = (user) => ({
 
 export const LOGOUT_USER = "LOGOUT_USER";
 export const logoutUser = () => ({
-  type: LOGIN_USER,
+  type: LOGOUT_USER,
 });
 
 export const SAVE_STOCK = "SAVE_STOCK";

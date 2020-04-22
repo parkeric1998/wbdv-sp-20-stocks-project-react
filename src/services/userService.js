@@ -29,7 +29,6 @@ const logout = async () => {
     method: 'POST',
     credentials: 'include',
   });
-  return await response.json();
 };
 
 

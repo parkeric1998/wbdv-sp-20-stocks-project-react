@@ -55,15 +55,19 @@ class LoginComponent extends Component {
     )
   };
 
-  loginUser = (e) => {
+  loginUser = async (e) => {
     e.preventDefault();
     const user = {
       name: this.state.name,
       password: this.state.password
     };
     const {loginUser} = this.props;
-    loginUser(user);
-    this.props.history.push('/profile');
+    if (await loginUser(user) === 1) {
+      this.props.history.push('/profile');
+    }
+    else {
+      alert("invalid login");
+    }
   };
 
   render = () => {
@@ -104,7 +108,11 @@ const stateToPropertyMapper = (state) => ({ });
 const dispatcherToPropsMapper = (dispatch) => ({
   loginUser: async (user) => {
     const savedUser = await userService.login(user);
-    dispatch(loginUser(savedUser));
+    if (savedUser.status !== 500) {
+      dispatch(loginUser(savedUser));
+      return 1;
+    }
+    return 0;
   }
 });
 
