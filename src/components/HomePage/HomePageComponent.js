@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HomePageComponent.css"
+import MyStocksComponent from "../MyStocksComponent";
 
 const HomePageComponent = () =>
   <div className="home-page">
@@ -10,24 +11,13 @@ const HomePageComponent = () =>
       height="400"
       width="700"
     />
+    <div className="bg-light">
+      <MyStocksComponent />
+    </div>
     <div>
       <Link to="/privacy">
         <i className="fa fa-3x fa-file">
           Privacy Policy
-        </i>
-      </Link>
-    </div>
-    <div>
-      <Link to="/register">
-        <i className="fa fa-3x fa-file">
-          Register
-        </i>
-      </Link>
-    </div>
-    <div>
-      <Link to="/login">
-        <i className="fa fa-3x fa-file">
-          Login
         </i>
       </Link>
     </div>
@@ -38,22 +28,6 @@ const HomePageComponent = () =>
         </i>
       </Link>
     </div>
-    <div>
-      <Link to="/profile">
-        <i className="fa fa-3x fa-file">
-          Profile
-        </i>
-      </Link>
-    </div>
-    <div>
-      <Link to="/details/LinkAPL">
-        <i className="fa fa-3x fa-file">
-          Details
-        </i>
-      </Link>
-    </div>
-
-
   </div>
 
 export default HomePageComponent;

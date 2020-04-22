@@ -9,9 +9,12 @@ class ProfileComponent extends Component {
     if (this.props.name !== "") {
       return (
         <div className="container">
-          <div>
-            {this.props.name}
-          </div>
+          <p>
+            Logged in as: {this.props.name}
+          </p>
+          <p>
+            Your stocks are:
+          </p>
           <MyStocksComponent />
         </div>
       );

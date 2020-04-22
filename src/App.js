@@ -8,40 +8,45 @@ import LoginComponent from "./components/Login/LoginComponent";
 import RegisterComponent from "./components/Register/RegisterComponent";
 import ProfileComponent from "./components/Profile/ProfileComponent";
 import PrivacyPolicyComponent from "./components/PrivacyPolicyComponent";
+import TopBarComponent from "./components/TopBarComponent";
 
 
 function App() {
 
   return (
-    <Switch>
-      <Route path="/search/:searchTerm?"
-             render={(props) =>
-               <StockSearchContainer {...props}
-                                     searchTerm={props.match.params.searchTerm}
-               />
-             }
-      />
-      <Route path="/details/:symbol"
-             render={(props) =>
-               <StockDetailsContainer {...props}
-                                      symbol={props.match.params.symbol}
-               />
-             }
-      />
-      <Route path="/login" component={LoginComponent}>
-      </Route>
+    <div>
+      <TopBarComponent />
+      <Switch>
 
-      <Route path="/register" component={RegisterComponent}>
-      </Route>
+        <Route path="/search/:searchTerm?"
+               render={(props) =>
+                 <StockSearchContainer {...props}
+                                       searchTerm={props.match.params.searchTerm}
+                 />
+               }
+        />
+        <Route path="/details/:symbol"
+               render={(props) =>
+                 <StockDetailsContainer {...props}
+                                        symbol={props.match.params.symbol}
+                 />
+               }
+        />
+        <Route path="/login" component={LoginComponent}>
+        </Route>
 
-      <Route path="/profile" component={ProfileComponent}>
-      </Route>
-      <Route path="/privacy">
-        <PrivacyPolicyComponent />
-      </Route>
-      <Route path="/" component={HomePageComponent}>
-      </Route>
-    </Switch>
+        <Route path="/register" component={RegisterComponent}>
+        </Route>
+
+        <Route path="/profile" component={ProfileComponent}>
+        </Route>
+        <Route path="/privacy">
+          <PrivacyPolicyComponent />
+        </Route>
+        <Route path="/" component={HomePageComponent}>
+        </Route>
+      </Switch>
+    </div>
   );
 
 }

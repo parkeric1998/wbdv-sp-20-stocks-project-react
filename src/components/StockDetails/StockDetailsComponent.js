@@ -21,7 +21,6 @@ const StockDetailsComponent = ({ symbol, savedStocks, loggedIn, saveStock, delet
 const stateToPropertyMapper = (state) => ({
   savedStocks: state.user.stocks,
   loggedIn: state.user.name !== "",
-  state: state
 });
 
 
