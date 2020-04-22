@@ -1,2 +1,2 @@
-export const API_URL = "http://localhost:8080";
+export const API_URL = "https://cs4550-project-backend.herokuapp.com/";
 export const ROLES = ["Beginner", "Advanced"];
